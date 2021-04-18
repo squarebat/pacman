@@ -1,0 +1,132 @@
+<section class="container">
+  <div class="columns is-multiline">
+    <div class="column is-8 is-offset-2 register">
+      <div class="columns">
+        <div class="column left">
+          <h1 class="title is-1">Pac Man</h1>
+          <h2 class="subtitle colored is-4">It's Pacman, but everybody's out to get ya :D</h2>
+          <p>Play the single player Classic Pacman, or join the multiplayer madness</p>
+        </div>
+        <div class="column right has-text-centered">
+          <h1 class="title is-4">Sign up</h1>
+          <!--<p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>-->
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium" type="text" placeholder="Name">
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <%= f.email_field :email, class: "input is-medium", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <%= f.password_field :password, class: "input is-medium", placeholder:"Password", autocomplete: "new-password" %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <%= f.password_field :password_confirmation, class: "input is-medium", placeholder:"Confirm Password", autocomplete: "new-password" %>
+              </div>
+            </div>
+            <div class="buttons">
+              <%= f.submit "Sign up", class:"button is-block is-primary is-fullwidth is-medium" %> 
+              <%= render "devise/shared/links", class:"button is-block is-primary is-fullwidth is-medium"
+              %>           
+            </div>
+            <!--<br />
+            <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>-->
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+    :root {
+      --brandColor: hsl(166, 67%, 51%);
+      --background: rgb(247, 247, 247);
+      --textDark: hsla(0, 0%, 0%, 0.66);
+      --textLight: hsla(0, 0%, 0%, 0.33);
+    }
+    body {
+      background: var(--background);
+      height: auto;
+      color: var(--textDark);
+    }
+
+    .field:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    .register {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .left,
+    .right {
+      padding: 3rem;
+    }
+
+    .left {
+      border-right: 5px solid var(--background);
+    }
+
+    .left .title {
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .left .colored {
+      color: var(--brandColor);
+      font-weight: 500;
+      margin-top: 1rem !important;
+      letter-spacing: -1px;
+    }
+
+    .left p {
+      color: var(--textLight);
+      font-size: 1.15rem;
+    }
+
+    .right .title {
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .right .description {
+      margin-top: 1rem;
+      margin-bottom: 1rem !important;
+      color: var(--textLight);
+      font-size: 1.15rem;
+    }
+
+    .right small {
+      color: var(--textLight);
+    }
+
+    input {
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: var(--brandColor) !important;
+      box-shadow: 0 0 0 1px var(--brandColor) !important;
+    }
+
+    .fab,
+    .fas {
+      color: var(--textLight);
+      margin-right: 1rem;
+    }
+
+  </style>
