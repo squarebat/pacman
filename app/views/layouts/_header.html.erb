@@ -22,10 +22,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
-          <%= link_to 'Edit Profile', edit_user_registration_path, 
-          class:"button is-white"
-          %> 
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class:"button is-dark" %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class:"button is-white" %>
           <% else %>
           <%= link_to 'Sign Up', new_user_registration_path, 
           class:"button is-white"

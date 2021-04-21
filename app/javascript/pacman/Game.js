@@ -869,17 +869,23 @@ Grid.prototype.drawBean = function() {
 //////////////////////////////////////////////////////
 
 var canvasID = "myCanvas";
-var scoreID = "scoreDisplay"
+var scoreID = "scoreDisplay";
+var highscoreID = "highScoreDisplay";
 var CANVAS_WIDTH = 510;
 var CANVAS_HEIGHT = 510;
 var canvas = document.getElementById(canvasID);
 var display = document.getElementById(scoreID);
+var highScoreDisplay = document.getElementById(highscoreID);
+var high_score = parseInt(highScoreDisplay.innerHTML);
 var game_score = document.getElementById("game_score");
 var game_win = document.getElementById("game_win");
 var game_duration = document.getElementById("game_duration");
 var game_time_started = document.getElementById("game_time_started");
 var save_game = document.getElementById("save_game");
-save_game.disabled = true;
+if (save_game!=null)
+{
+	save_game.disabled = true;
+}
 var start_time;
 var ctx = canvas.getContext("2d");
 
@@ -1476,14 +1482,22 @@ function showScore(){
 	ctx.textAlign = "left";
 	ctx.fillText("score: " + parseInt(score), CANVAS_WIDTH-250, 37);
 	display.innerHTML = parseInt(score);
+	if (parseInt(score) > high_score)
+	{
+		highScoreDisplay.innerHTML = parseInt(score);
+		highScoreDisplay.color = 'green';
+	}
 }
 
 function saveGame(win = false)
 {
-	game_score.value = score;
-	game_win.value = win;
-	game_duration.value = (Date.now() - start_time)/1000;
-	save_game.disabled = false;
+	if (save_game!=null)
+	{
+		game_score.value = score;
+		game_win.value = win;
+		game_duration.value = (Date.now() - start_time)/1000;
+		save_game.disabled = false;
+	}
 } 
 //show win message
 function winMessage(){
@@ -1699,12 +1713,16 @@ function onKeyDown (event) {
 
 	var setTime = function ()
 	{
-		start_time = Date.now();
-		game_time_started.value = new Date();
+		if (game_time_started != null)
+		{
+			start_time = Date.now();
+			game_time_started.value = new Date();
+		}
 	}
 	//start game
 	if(!gameOn){
 		if(keycode === sCode){
+			high_score = parseInt(highScoreDisplay.innerHTML);
 			clearInterval(intervalId);
 			gameOn = true;
 			gamePaused = false;
@@ -1728,6 +1746,7 @@ function onKeyDown (event) {
 
 		//pause game
 		if(keycode === pauseCode && !gamePaused){
+			high_score = parseInt(highScoreDisplay.innerHTML);
 			clearInterval(intervalId);
 			gamePaused = true;
 			saveGame(false);
@@ -1738,13 +1757,17 @@ function onKeyDown (event) {
 		if(keycode === continueCode && gamePaused){
 			intervalId = setInterval(updateCanvas, timerDelay);
 			gamePaused = false;
-			save_game.disabled = true;
+			if (save_game!= null)
+			{
+				save_game.disabled = true;
+			}
 			return;
 		}
 
 		//restart game
 		if( keycode === restartCode && restartTimer > 0) {
 			//can't restart game if a game was just refreshed.
+			high_score = parseInt(highScoreDisplay.innerHTML);
 			restartTimer = 0;
 			clearInterval(intervalId);
 			gameOn = true;
@@ -1752,7 +1775,10 @@ function onKeyDown (event) {
 			score = 0;
 			life = MAX_LIFE;
 			beansLeft = MAX_BEANS;
-			save_game.disabled = true;
+			if (save_game!= null)
+			{
+				save_game.disabled = true;
+			}
 			initMaze();
 			setTime();
 			run();

@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
 	<%= render 'home/userhome' %>
 <% else %>
-	<h1>Home#index</h1>
-	<p>Find me in app/views/home/index.html.erb</p>
+	<%= render 'games/playgame' %>
 <% end %>
+
+<%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>

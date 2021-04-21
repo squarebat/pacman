@@ -1,32 +1,34 @@
+<div id="particles-js">
 <section class="container">
   <div class="columns is-multiline">
     <div class="column is-8 is-offset-2 register">
       <div class="columns">
         <div class="column left">
           <h1 class="title is-1">Pac Man</h1>
-          <h2 class="subtitle colored is-4">It's Pacman, but everybody's out to get ya :D</h2>
+          <h2 class="subtitle colored has-text-primary is-4">It's Pacman, but everybody's out to get ya :D</h2>
           <p>Play the single player Classic Pacman, or join the multiplayer madness</p>
         </div>
         <div class="column right has-text-centered">
-          <h1 class="title is-4">Log In</h1>
+          <h1 class="title is-4 ">Log In</h1>
           <!--<p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>-->
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
             <div class="field">
               <div class="control">
-                <%= f.email_field :email, class: "input is-medium", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, class: "input is-medium is-primary", placeholder:"Email", autofocus: true, autocomplete: "email" %>
               </div>
             </div>
 
             <div class="field">
               <div class="control">
-                <%= f.password_field :password, class: "input is-medium", placeholder:"Password", autocomplete: "current-password" %>
+                <%= f.password_field :password, class: "input is-medium is-primary", placeholder:"Password", autocomplete: "current-password" %>
               </div>
             </div>
             <% if devise_mapping.rememberable? %>
               <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+                <label class="checkbox">
+                  <%= f.check_box :remember_me, type:"checkbox" %> Remember me
+                </label>
               </div>
             <% end %>
 
@@ -42,9 +44,9 @@
     </div>
   </div>
 </section>
+</div>
 <style>
     :root {
-      --brandColor: hsl(166, 67%, 51%);
       --background: rgb(247, 247, 247);
       --textDark: hsla(0, 0%, 0%, 0.66);
       --textLight: hsla(0, 0%, 0%, 0.33);
@@ -62,8 +64,8 @@
     .register {
       margin-top: 5rem;
       margin-bottom: 5rem;
-      background: white;
       border-radius: 10px;
+      background-color: white;
     }
 
     .left,
@@ -81,7 +83,6 @@
     }
 
     .left .colored {
-      color: var(--brandColor);
       font-weight: 500;
       margin-top: 1rem !important;
       letter-spacing: -1px;
@@ -112,11 +113,7 @@
       font-size: 1rem;
     }
 
-    input:focus {
-      border-color: var(--brandColor) !important;
-      box-shadow: 0 0 0 1px var(--brandColor) !important;
-    }
-
+    
     .fab,
     .fas {
       color: var(--textLight);

@@ -1,7 +1,27 @@
+
 <br/>
-<%= link_to "Single Player", games_playgame_path, class:"button is-info is-rounded" %>
+<%= link_to "Play Single Player", games_playgame_path, class:"button is-info is-rounded is-large" %>
 <%= link_to home_about_path do %>
-      <button class="button is-link is-rounded" disabled>Multi Player</button>
-<% end %>  
-<%= render 'games/usergames' %>
-<%= render 'user_game_stats/leaderboards' %>
+      <button class="button is-link is-large is-rounded" disabled>Play Multi Player</button>
+<% end %>
+<div class="columns">
+	<div class="column is-6">
+		<%= render 'games/usergames' %>
+	</div>
+	<div class="column is-6">
+		<%= render 'user_game_stats/leaderboards' %>
+	</div>
+</div>
+<style type="text/css">
+	:root {
+      --background: rgb(247, 247, 247);
+      --textDark: hsla(0, 0%, 0%, 0.66);
+      --textLight: hsla(0, 0%, 0%, 0.33);
+    }
+    body {
+      background: var(--background);
+      min-height: 100vh;
+      height: auto;
+      color: var(--textDark);
+    }
+</style>
