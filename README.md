@@ -11,7 +11,7 @@ Ruby on rails webapp to play pacman in single player and multiplayer mode. Curre
 * [Screenshots](#screenshots)
 
 ## Description
-The aim is to create webapp to play pacman in single player and multiplayer mode, maintain statistics of games played, view leaderboards etc. This project was developed to learn Ruby on Rails and concepts of realtime multiplayer gameplaying.  
+A webapp to play pacman in single player and multiplayer mode, maintain statistics of games played, view leaderboards etc. This project was developed to learn Ruby on Rails and concepts of realtime multiplayer gameplaying.  
 
 ## Prerequisites
 * Ruby 2.7.2
