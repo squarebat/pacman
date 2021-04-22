@@ -17,7 +17,7 @@ The aim is to create webapp to play pacman in single player and multiplayer mode
 * Ruby 2.7.2
 * Rails 6.1.3.1
 
-You can check version using ```ruby -v ``` and ```rails -v```
+Check your version using ```ruby -v ``` and ```rails -v```
 
 ## Setup
 
