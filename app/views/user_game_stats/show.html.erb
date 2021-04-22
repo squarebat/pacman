@@ -1,0 +1,27 @@
+<p>
+  <strong>User:</strong>
+  <%= @user_game_stat.user_id %>
+</p>
+
+<p>
+  <strong>Wins:</strong>
+  <%= @user_game_stat.wins %>
+</p>
+
+<p>
+  <strong>Total games:</strong>
+  <%= @user_game_stat.total_games %>
+</p>
+
+<p>
+  <strong>Total score:</strong>
+  <%= @user_game_stat.total_score %>
+</p>
+
+<p>
+  <strong>Highest score:</strong>
+  <%= @user_game_stat.highest_score %>
+</p>
+
+<%= link_to 'Edit', edit_user_game_stat_path(@user_game_stat) %> |
+<%= link_to 'Back', user_game_stats_path %>

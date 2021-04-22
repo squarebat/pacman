@@ -13,10 +13,12 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
             <div class="field">
-              <div class="control">
-                <input class="input is-medium" type="text" placeholder="Name">
+              <div>
+                <br />
+                <%= f.text_field :name, class: "input is-medium", placeholder:"Username",autofocus: true%>
               </div>
             </div>
+
 
             <div class="field">
               <div class="control">

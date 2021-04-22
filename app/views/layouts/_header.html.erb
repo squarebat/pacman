@@ -4,7 +4,7 @@
     <%= image_tag "pac-man.png", width: '60', height: '40' %>
     <% end %>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a id = "nav-toggle" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -18,23 +18,22 @@
       %>      
     </div>
 
-    <div class="navbar-end">
+    <div id = "nav-menu" class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-        	<% if user_signed_in? %>
-        	<%= link_to 'Edit Profile', new_user_registration_path, 
-      		class:"button is-white"
-      		%> 
-      		<%= link_to 'Sign Out', destroy_user_session_path, method: :delete,  class:"button is-dark"
-      		%>      		 
-      		<% else %>
-      		<%= link_to 'Sign Up', new_user_registration_path, 
-      		class:"button is-white"
-      		%> 
-      		<%= link_to 'Sign In', new_user_session_path, 
-      		class:"button is-dark"
-      		%>
-      		<% end %>
+          <% if user_signed_in? %>
+          <%= link_to 'Edit Profile', edit_user_registration_path, 
+          class:"button is-white"
+          %> 
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class:"button is-dark" %>
+          <% else %>
+          <%= link_to 'Sign Up', new_user_registration_path, 
+          class:"button is-white"
+          %> 
+          <%= link_to 'Sign In', new_user_session_path, 
+          class:"button is-dark"
+          %>
+          <% end %>
         </div>
       </div>
     </div>

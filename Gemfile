@@ -8,6 +8,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
+gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -29,3 +30,4 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem "bulma-rails", "~> 0.8.0"

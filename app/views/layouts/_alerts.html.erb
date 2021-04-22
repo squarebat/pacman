@@ -1,5 +1,13 @@
-<br/>
-<div class="notification is-warning is-light">
-  <button class="delete"></button>
-  <%= notice %>
-</div>
+<% if notice %>
+	<br/>
+	<div class="notification is-warning is-light">
+	  <button class="delete"></button>
+	  <%= notice %>
+	</div>
+<% elsif alert%>
+	<br/>
+	<div class="notification is-danger is-light">
+	  <button class="delete"></button>
+	  <%= alert %>
+	</div>
+ <% end %>
