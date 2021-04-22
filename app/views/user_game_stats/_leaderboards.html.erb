@@ -1,0 +1,45 @@
+<br>
+<div class="card events-card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Leaderboards
+        </p>
+    </header>
+    <div class="card-table">
+        <div class="content">
+            <table class="table is-fullheight is-striped">
+                <thead>
+              <tr>
+                <th>User</th>
+                <th>Wins</th>
+                <th>Total games</ths>
+                <th>Total score</th>
+                <th>Highest score</th>
+                
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @user_game_stats.each do |user_game_stat| %>
+                <tr>
+                  <td><%= user_game_stat.user.name %></td>
+                  <td><%= user_game_stat.wins %></td>
+                  <td><%= user_game_stat.total_games %></td>
+                  <td><%= user_game_stat.total_score %></td>
+                  <td><%= user_game_stat.highest_score %></td>
+                </tr>
+              <% end %>
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <!--<footer class="card-footer">
+        <a href="#" class="card-footer-item">View All</a>
+    </footer>-->
+</div>
+<style>
+  .events-card .card-table {
+  max-height: 400px;
+  overflow-y: auto;
+  }
+</style>

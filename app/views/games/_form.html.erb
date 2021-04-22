@@ -1,0 +1,37 @@
+<%= form_with(model: game) do |form| %>
+  <% if game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+        <% game.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.number_field :score, type: :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :time_started, type: :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :win, type: :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :duration, type: :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :user_id, id: :game_user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="actions">
+    <input id = "save_game" type="submit" name="commit" class="button has-background-success has-text-white is-rounded is-large" value="Save Game" data-disable-with="Save Game" disabled/>
+  </div>
+<% end %>

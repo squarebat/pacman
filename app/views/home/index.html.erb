@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+	<%= render 'home/userhome' %>
+<% else %>
+	<%= render 'games/playgame' %>
+<% end %>
+
+<%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>

@@ -1,0 +1,46 @@
+<br/>
+<div class="columns">
+	<div class="column">
+    	<canvas id="myCanvas" width="510" height="510">
+		</canvas>
+	</div>
+	<div class="column">
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+					<header class="card-header has-background-warning">
+				   		<p class="card-header-title is-size-2">
+				      	Your Score:
+				    	</p>
+				  	</header>
+				  	<div class="card-content">
+				    	<div class="content">
+				  			<span id="scoreDisplay" class="is-size-2 has-text-weight-bold">0</span>    
+				    	</div>
+				  	</div>
+				</div>
+			</div>
+			
+			<div class="column">
+				<div class="card">
+					<header class="card-header has-background-info has-text-white">
+				    	<p class="card-header-title is-size-2">
+				      	High Score:
+				    	</p>
+				  	</header>
+				  	<div class="card-content">
+					    <div class="content">
+					  		<span id="highScoreDisplay" class="is-size-2 has-text-weight-bold">0</span>    
+					    </div>
+				  	</div>
+				</div>
+			</div>
+		</div>
+		<div class="columns">
+			<div class="column">
+				<br/><br/>
+				<%= link_to "Log in to save your games", new_user_session_path, class:"button is-success is-rounded is-large" %>			
+			</div>
+		</div>
+	</div>
+</div>

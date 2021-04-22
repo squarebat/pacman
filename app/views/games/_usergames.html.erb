@@ -1,0 +1,69 @@
+<br>
+<div class="card events-card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Your Games
+        </p>
+    </header>
+    <div class="card-table">
+        <div class="content">
+            <table class="table is-fullheight is-striped">
+                <thead>
+                  <tr>
+                    <th><%= sortable "score", "Score" %></th>
+                    <!--<th><%= sortable "time_started", "Date" %></th>-->
+                    <th><%= "Win" %></th>
+                    <th><%= "Duration" %></th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @games.each do |game| %>
+                    <% if game.user == current_user %>
+                    <tr>
+                      <td>
+                        <%= game.score %>
+                        <% if game.score == current_user.user_game_stat.highest_score %>
+                          <span class="icon has-text-warning">
+                            <i class="fas fa-crown"></i>
+                          </span>
+                        <%end%>  
+                      </td>
+                      <!--<td><%= game.time_started.strftime("%d-%m-%Y") %></td>-->
+                      <td>
+                        <% if game.win == true %>
+                        <span class="icon has-text-success">
+                          <i class="fas fa-check"></i>
+                        </span>
+                        <% else %>
+                        <span class="icon has-text-danger">
+                          <i class="fas fa-times"></i>
+                        </span>
+                        <% end %>
+                      </td>
+                      <td><%= game.duration.round(2) %> s</td>
+                      <td>
+                        <%= link_to game, method: :delete, data: { confirm: 'Are you sure?' }  do%>
+                          <span class="icon has-text-black">
+                            <i class="fas fa-trash-alt"></i>
+                          </span>
+                        <%end%>
+                      </td>
+                    </tr>
+                    <% end %>
+                  <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--<footer class="card-footer">
+        <a href="#" class="card-footer-item">View All</a>
+    </footer>-->
+</div>
+<style>
+  .events-card .card-table {
+  max-height: 400px;
+  overflow-y: auto;
+  }
+</style>

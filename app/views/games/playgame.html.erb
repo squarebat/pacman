@@ -1,0 +1,60 @@
+<br/>
+<div class="columns">
+  <div class="column">
+    <canvas id="myCanvas" width="510" height="510">
+		</canvas>
+  </div>
+  <div class="column">
+  	<div class="card">
+  		<header class="card-header has-background-warning">
+		    <p class="card-header-title is-size-2">
+		      Your Score:
+		    </p>
+		  </header>
+		  <div class="card-content">
+		    <div class="content">
+		  		<span id="scoreDisplay" class="is-size-2 has-text-weight-bold">0</span>    
+		    </div>
+		  </div>
+		</div>
+		<br/><br/>
+		<%= render 'form', game: @game %>  
+	</div>
+	<div class="column">
+  	<div class="card">
+  		<header class="card-header has-background-info has-text-white">
+		    <p class="card-header-title is-size-2">
+		      High Score:
+		    </p>
+		  </header>
+		  <div class="card-content">
+		    <div class="content">
+		  		<span id="highScoreDisplay" class="is-size-2 has-text-weight-bold">
+		  			<% if current_user.user_game_stat.nil? %>
+		  			0
+		  			<% else %>
+		  				<%=current_user.user_game_stat.highest_score %>
+		  			<%end%>		  				
+		  		</span>    
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	:root {
+      --background: rgb(247, 247, 247);
+      --textDark: hsla(0, 0%, 0%, 0.66);
+      --textLight: hsla(0, 0%, 0%, 0.33);
+    }
+    body {
+      background: var(--background);
+      height: auto;
+      min-height: 100vh;
+      color: var(--textDark);
+    }
+</style>
+<%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>
+
+
+

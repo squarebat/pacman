@@ -1,0 +1,38 @@
+<nav class="navbar  is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%=  link_to root_path do %>
+    <%= image_tag "pac-man.png", width: '60', height: '40' %>
+    <% end %>
+
+    <a id = "nav-toggle" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to 'About Us', home_about_path, 
+      class:"navbar-item"
+      %>      
+    </div>
+
+    <div id = "nav-menu" class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if user_signed_in? %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class:"button is-white" %>
+          <% else %>
+          <%= link_to 'Sign Up', new_user_registration_path, 
+          class:"button is-white"
+          %> 
+          <%= link_to 'Sign In', new_user_session_path, 
+          class:"button is-dark"
+          %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
