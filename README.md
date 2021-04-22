@@ -7,6 +7,7 @@ Ruby on rails webapp to play pacman in single player and multiplayer mode. Curre
 * [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
+* [Credits](#credits)
 * [Screenshots](#screenshots)
 
 ## Description
@@ -64,7 +65,7 @@ Following features are currently in development:
 ## Status
 Project is currently in development.
 
-## Credits:
+## Credits
 
 [ziw/Javascript-Pacman](https://github.com/ziw/Javascript-Pacman) - The javascript files for the pacman gameplay obtained from this repo, were developed by Zi Wang (ziw), Bingying Xia (bxia). The files were further modified for this project.
 
