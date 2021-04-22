@@ -45,7 +45,7 @@ rails s
 ```
 The project is now hosted on ```http://127.0.0.1:3000```
 
-Or, host on a different port using ```rails s -p <port_no>```
+Alternatively, you can host it on a different port using the command ```rails s -p <port_no>```
 
 ## Features
 
