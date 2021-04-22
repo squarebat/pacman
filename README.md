@@ -2,14 +2,12 @@
 Ruby on rails webapp to play pacman in single player and multiplayer mode. Currently in development.
 
 ## Table of contents
-* [Decription](#description)
-* [Screenshots](#screenshots)
-* [Technologies](#technologies)
+* [Description](#description)
+* [Prerequisites](#prerequisites)
 * [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+* [Screenshots](#screenshots)
 
 ## Description
 The aim is to create webapp to play pacman in single player and multiplayer mode, maintain statistics of games played, view leaderboards etc. This project was developed to learn Ruby on Rails and concepts of realtime multiplayer gameplaying.  
@@ -68,7 +66,7 @@ Project is currently in development.
 
 ## Credits:
 
-[ziw/Javascrip-Pacman](https://github.com/ziw/Javascript-Pacman) - The javascript files for the pacman gameplay obtained from this repo, were developed by Zi Wang (ziw), Bingying Xia (bxia). The files were further modified for this project.
+[ziw/Javascript-Pacman](https://github.com/ziw/Javascript-Pacman) - The javascript files for the pacman gameplay obtained from this repo, were developed by Zi Wang (ziw), Bingying Xia (bxia). The files were further modified for this project.
 
 ## Screenshots
 ![Screenshots](./app/assets/images/landing-page.png)
