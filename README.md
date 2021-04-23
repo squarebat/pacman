@@ -3,15 +3,30 @@ Ruby on rails webapp to play pacman in single player and multiplayer mode. Curre
 
 ## Table of contents
 * [Description](#description)
+* [Features](#features)
 * [Prerequisites](#prerequisites)
 * [Setup](#setup)
-* [Features](#features)
 * [Status](#status)
 * [Credits](#credits)
 * [Screenshots](#screenshots)
 
 ## Description
 A webapp to play pacman in single player and multiplayer mode, maintain statistics of games played, view leaderboards etc. This project was developed to learn Ruby on Rails and concepts of realtime multiplayer gameplaying.  
+
+## Features
+
+Following features have been implemented:
+* Play single player mode Pacman as guest (without user account).
+* Create user account and save your games.
+* Maintain user game statistics - high score, no of wins total games played etc.
+* View Leaderboards (Based on no of total wins, high score and total score).
+
+Following features are currently in development:
+* Enabling Multiplayer mode. There are two multiplayer modes:
+  1. 2 players will play simultaneously in seperate mazes. The player to eat all pellets first wins, regardless of score. If both players die before eating all pellets, winner is decided based on higher score.
+  2. 2-4 players will play in the same maze. Players will receive power pellets randomly which will enable them to eat other players. The one with the highest score wins! 
+  
+* Adding supercool sound effects to the game.
 
 ## Prerequisites
 * Ruby 2.7.2
@@ -20,6 +35,17 @@ A webapp to play pacman in single player and multiplayer mode, maintain statisti
 Check your version using ```ruby -v ``` and ```rails -v```
 
 ## Setup
+
+### Using Docker
+
+Build a docker image and run it using docker-compose. This is especially useful if your system does not meet above dependencies.
+```
+docker-compose build
+docker-compose up
+```
+The project is now hosted on ```http://127.0.0.1:3000```
+
+### Step by Step
 
 Clone the repository:
 ```
@@ -41,26 +67,11 @@ rails db:migrate
 
 Run the server
 ```
-rails s
+rails server
 ```
-The project is now hosted on ```http://127.0.0.1:3000```
+It can now be accessed on ```http://127.0.0.1:3000```
 
-Alternatively, you can host it on a different port using the command ```rails s -p <port_no>```
-
-## Features
-
-Following features have been implemented:
-* Play single player mode Pacman as guest (without user account).
-* Create user account and save your games.
-* Maintain user game statistics - high score, no of wins total games played etc.
-* View Leaderboards (Based on no of total wins, high score and total score).
-
-Following features are currently in development:
-* Enabling Multiplayer mode. There are two multiplayer modes:
-  1. 2 players will play simultaneously in seperate mazes. The player to eat all pellets first wins, regardless of score. If both players die before eating all pellets, winner is decided based on higher score.
-  2. 2-4 players will play in the same maze. Players will receive power pellets randomly which will enable them to eat other players. The one with the highest score wins! 
-  
-* Adding supercool sound effects to the game.
+Alternatively, you can host it on a different port using the command ```rails server -p <port_no>```
 
 ## Status
 Project is currently in development.
