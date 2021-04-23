@@ -21,6 +21,16 @@ Check your version using ```ruby -v ``` and ```rails -v```
 
 ## Setup
 
+### Using Docker
+
+Build a docker image and run it using docker-compose. This is especially useful if your system does not meet above dependencies.
+```
+docker-compose build
+docker-compose up
+```
+The project is now hosted on ```http://127.0.0.1:3000```
+
+### Step by Step
 Clone the repository:
 ```
 https://github.com/squarebat/pacman.git
@@ -41,11 +51,13 @@ rails db:migrate
 
 Run the server
 ```
-rails s
+rails server
 ```
-The project is now hosted on ```http://127.0.0.1:3000```
+It can now be accessed on ```http://127.0.0.1:3000```
 
-Alternatively, you can host it on a different port using the command ```rails s -p <port_no>```
+Alternatively, you can host it on a different port using the command ```rails server -p <port_no>```
+
+To run above steps at once, run the ```setup.sh``` file.
 
 ## Features
 
