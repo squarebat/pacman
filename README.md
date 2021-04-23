@@ -31,6 +31,7 @@ docker-compose up
 The project is now hosted on ```http://127.0.0.1:3000```
 
 ### Step by Step
+
 Clone the repository:
 ```
 https://github.com/squarebat/pacman.git
@@ -56,8 +57,6 @@ rails server
 It can now be accessed on ```http://127.0.0.1:3000```
 
 Alternatively, you can host it on a different port using the command ```rails server -p <port_no>```
-
-To run above steps at once, run the ```setup.sh``` file.
 
 ## Features
 
