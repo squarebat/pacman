@@ -8,9 +8,7 @@ ENV RAILS_PORT 3000
 
 COPY ./dev-docker-entrypoint.sh /usr/local/bin/dev-entrypoint.sh
 
-COPY ./test-docker-entrypoint.sh /usr/local/bin/test-entrypoint.sh
-
-RUN chmod +x /usr/local/bin/dev-entrypoint.sh && chmod +x /usr/local/bin/test-entrypoint.sh
+RUN chmod +x /usr/local/bin/dev-entrypoint.sh
 
 #setup deps for rails 
 

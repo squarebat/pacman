@@ -31,3 +31,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem "bulma-rails", "~> 0.8.0"
+gem 'json', '~> 2.5', '>= 2.5.1'
