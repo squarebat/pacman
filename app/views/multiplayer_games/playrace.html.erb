@@ -1,14 +1,26 @@
 <br/>
-<div class="columns">
-  <div class="column">
+<div id = "canvases" class="columns">
+  <div class="column" id="canvas_div" style="display:none">
     <canvas id="myCanvas" width="510" height="510">
 	  </canvas>
   </div>
-  <div class="column">	
-    <canvas id="opponentCanvas" width="510" height="510">
-    </canvas>
+  <div class="column" id="op_canvas_div" style="display:none">
+      <canvas id="opponentCanvas" width="510" height="510">
+      </canvas>
   </div>
- 
+</div>
+<div id="wait_msg" style="display:block" class="column">
+      <p>Waiting for opponent...</p>
+</div>
+<div id="timeout_msg" style="display:none" class="column">
+    <p>We looked far and wide, but we could not find an opponent &#128549. </p>
+    <p> But we have
+    <% if user_signed_in? %>
+      <%= link_to "single player mode", games_playgame_path%>
+    <% else %>
+      <%= link_to "single player mode", "/"%> 
+    <% end %>!
+    </p>
 </div>
 <style type="text/css">
 	:root {

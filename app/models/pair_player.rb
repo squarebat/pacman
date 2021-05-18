@@ -6,7 +6,7 @@ class PairPlayer
         REDIS.sadd("players", conn_id)
       end
     end
-  
+    
     def self.remove(conn_id)
       REDIS.srem("players", conn_id)
     end

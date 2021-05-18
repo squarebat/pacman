@@ -1,9 +1,8 @@
 
 <br/>
-<%= link_to "Play Single Player", games_playgame_path, class:"button is-info is-rounded is-large" %>
-<%= link_to home_about_path do %>
-      <button class="button is-link is-large is-rounded" disabled>Play Multi Player</button>
-<% end %>
+<%= link_to "Play Single Player", games_playgame_path, class:"button is-success is-rounded is-large" %>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= render 'multiplayer_games/multiplayer_button' %>
 <div class="columns">
 	<div class="column is-6">
 		<%= render 'games/usergames' %>

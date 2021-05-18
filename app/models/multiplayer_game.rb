@@ -1,5 +1,4 @@
 class MultiplayerGame < ApplicationRecord
-
     def self.start(conn_id1, conn_id2)
         ActionCable.server.broadcast "player_#{conn_id1}", {action: "game_start", msg: conn_id2}
         ActionCable.server.broadcast "player_#{conn_id2}", {action: "game_start", msg: conn_id1}

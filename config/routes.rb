@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  root 'home#index'  
   get 'multiplayer_games/playrace'
   resources :multiplayer_games
   resources :user_game_stats
-  root 'home#index'  
   devise_for :users
   get 'games/playgame'  
   resources :games  
