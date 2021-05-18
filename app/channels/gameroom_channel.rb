@@ -8,10 +8,11 @@ class GameroomChannel < ApplicationCable::Channel
   end
 
   def send_move(data)
-    MultiplayerGame.make_move(conn_id, data)
+    RaceGame.make_move(conn_id, data)
   end
 
   def unsubscribed
     PairPlayer.remove(conn_id)
+    RaceGame.forfeit(conn_id)
   end 
 end

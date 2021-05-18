@@ -5,7 +5,6 @@ function disconnectFromCable()
 {
 	document.getElementById("wait_msg").style.display = "none";
 	document.getElementById("timeout_msg").style.display = "block";
-	consumer.disconnect();
 }
 var game = consumer.subscriptions.create( "GameroomChannel", {
 	connected() {
@@ -25,6 +24,7 @@ var game = consumer.subscriptions.create( "GameroomChannel", {
 		switch(data.action)
 		{
 			case "game_start":
+				console.log("Player: "+conn_timeout);
 				clearTimeout(conn_timeout);
 				document.getElementById("wait_msg").style.display = "none";
 				document.getElementById("canvas_div").style.display = "block";
@@ -32,6 +32,9 @@ var game = consumer.subscriptions.create( "GameroomChannel", {
 				break;
 			case "player_move":
 				Race.play_move_opponent_side(data.msg);
+				break;
+			case "opponent_forfeits":
+				console.log("Opponent Disconnected from server. You Win!");
 				break;
 		}
 	},

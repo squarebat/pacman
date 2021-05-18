@@ -1,7 +1,7 @@
 class PairPlayer
     def self.create(conn_id)
       if opponent = REDIS.spop("players")
-        MultiplayerGame.start(conn_id, opponent)
+        RaceGame.start(conn_id, opponent)
       else
         REDIS.sadd("players", conn_id)
       end

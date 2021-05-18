@@ -6,7 +6,6 @@ class CreateMultiplayerGames < ActiveRecord::Migration[6.1]
       t.integer :score
       t.boolean :win
       t.datetime :time
-
       t.timestamps
     end
   end
