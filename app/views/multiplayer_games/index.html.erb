@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Multiplayer Games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Opponent</th>
+      <th>Score</th>
+      <th>Win</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @multiplayer_games.each do |multiplayer_game| %>
+      <tr>
+        <td><%= multiplayer_game.user_id %></td>
+        <td><%= multiplayer_game.opponent_id %></td>
+        <td><%= multiplayer_game.score %></td>
+        <td><%= multiplayer_game.win %></td>
+        <td><%= multiplayer_game.time %></td>
+        <td><%= link_to 'Show', multiplayer_game %></td>
+        <td><%= link_to 'Edit', edit_multiplayer_game_path(multiplayer_game) %></td>
+        <td><%= link_to 'Destroy', multiplayer_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Multiplayer Game', new_multiplayer_game_path %>

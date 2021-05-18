@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_084826) do
+ActiveRecord::Schema.define(version: 2021_05_16_072212) do
 
   create_table "games", force: :cascade do |t|
     t.integer "score"
@@ -21,6 +21,26 @@ ActiveRecord::Schema.define(version: 2021_04_20_084826) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "multi_player_games", force: :cascade do |t|
+    t.string "user_id"
+    t.string "opponent_id"
+    t.integer "score"
+    t.boolean "win"
+    t.datetime "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "multiplayer_games", force: :cascade do |t|
+    t.string "user_id"
+    t.string "opponent_id"
+    t.integer "score"
+    t.boolean "win"
+    t.datetime "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_game_stats", force: :cascade do |t|

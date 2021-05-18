@@ -1,0 +1,27 @@
+<br/>
+<div class="columns">
+  <div class="column">
+    <canvas id="myCanvas" width="510" height="510">
+	  </canvas>
+  </div>
+  <div class="column">	
+    <canvas id="opponentCanvas" width="510" height="510">
+    </canvas>
+  </div>
+ 
+</div>
+<style type="text/css">
+	:root {
+      --background: rgb(247, 247, 247);
+      --textDark: hsla(0, 0%, 0%, 0.66);
+      --textLight: hsla(0, 0%, 0%, 0.33);
+    }
+    body {
+      background: var(--background);
+      height: auto;
+      min-height: 100vh;
+      color: var(--textDark);
+    }
+</style>
+<%= javascript_pack_tag 'multiplayerrace', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'packchannels', 'data-turbolinks-track': 'reload' %>
