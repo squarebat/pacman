@@ -12,6 +12,17 @@
     min-height: 100vh;
     color: var(--textDark);
   }
+  .pad {
+    padding-left: 40px;
+    padding-right: 40px
+  }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="pad"] {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
   .scoreboard {
     width:510px;
     padding-top:10px;
