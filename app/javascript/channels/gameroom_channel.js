@@ -1,16 +1,19 @@
 import consumer from './consumer'
-import * as Race from '../pacman/RaceOpponentSide'
+import * as OpponentGame from '../pacman/RaceOpponentSide'
+import * as PlayerGame from '../pacman/RacePlayerSide'
 var conn_timeout;
+var game_started = false;
 function disconnectFromCable()
 {
 	document.getElementById("wait_msg").style.display = "none";
 	document.getElementById("timeout_msg").style.display = "block";
+	consumer.disconnect();
 }
 var game = consumer.subscriptions.create( "GameroomChannel", {
 	connected() {
 		// called when subscription is connected to server
+		if (!game_started) conn_timeout = setTimeout(disconnectFromCable, 10000);
 		console.log("Waiting for opponent...");
-		conn_timeout = setTimeout(disconnectFromCable, 15000);
 	},
 
 	disconnected() {
@@ -24,14 +27,16 @@ var game = consumer.subscriptions.create( "GameroomChannel", {
 		switch(data.action)
 		{
 			case "game_start":
-				console.log("Player: "+conn_timeout);
+				game_started = true;
 				clearTimeout(conn_timeout);
 				document.getElementById("wait_msg").style.display = "none";
 				document.getElementById("canvas_div").style.display = "block";
 				document.getElementById("op_canvas_div").style.display = "block";
+				PlayerGame.welcomeScreen();
+				OpponentGame.welcomeScreen();
 				break;
 			case "player_move":
-				Race.play_move_opponent_side(data.msg);
+				OpponentGame.play_move_opponent_side(data.msg);
 				break;
 			case "opponent_forfeits":
 				console.log("Opponent Disconnected from server. You Win!");

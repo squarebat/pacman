@@ -930,7 +930,7 @@ var timerDelay = 80;
 var speed = 5;
 var score = 0;
 var lives = [];
-var MAX_LIFE = 3;
+var MAX_LIFE = 1;
 var life = MAX_LIFE;
 var weakBonus = 200;
 var MAX_BEANS = 136;
@@ -1445,7 +1445,6 @@ function welcomeScreen(){
 	ctx.font = "20px monospace";
 	ctx.fillText("Press s to start", CANVAS_WIDTH/2, 220);
 	ctx.font = "14px monospace";
-	ctx.fillText("DEVELOPED BY: ZI WANG, BINGYING XIA", CANVAS_WIDTH/2 , CANVAS_HEIGHT/20*19);
 	
 	welcomePacman = new Pacman(CANVAS_WIDTH/5, CANVAS_HEIGHT/3*2, RIGHT);
 	welcomePacman.radius = 30;

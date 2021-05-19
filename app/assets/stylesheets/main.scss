@@ -3,6 +3,7 @@ $light-purple: #FFACFC;
 $purple: #F148FB;
 $blue-purple: #7122FA;
 $primary: $dark-purple; 
+
 //$link: #FFE400;
 //$info: #F1485B;   //purple
 //$success:#14A76C; //green
@@ -15,3 +16,5 @@ $primary: $dark-purple;
 //$input-color: $primary;    
 @import '../../bulma/bulma';
 @import '_layout';
+@import 'multi_player_game';
+@import 'games'

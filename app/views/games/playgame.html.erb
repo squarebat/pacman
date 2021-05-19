@@ -16,11 +16,11 @@
 		  		<span id="scoreDisplay" class="is-size-2 has-text-weight-bold">0</span>    
 		    </div>
 		  </div>
-		</div>
-		<br/><br/>
-		<%= render 'form', game: @game %>  
 	</div>
-	<div class="column">
+	<br/><br/>
+	<%= render 'form', game: @game %>  
+  </div>
+  <div class="column">
   	<div class="card">
   		<header class="card-header has-background-info has-text-white">
 		    <p class="card-header-title is-size-2">
@@ -41,19 +41,6 @@
 		</div>
 	</div>
 </div>
-<style type="text/css">
-	:root {
-      --background: rgb(247, 247, 247);
-      --textDark: hsla(0, 0%, 0%, 0.66);
-      --textLight: hsla(0, 0%, 0%, 0.33);
-    }
-    body {
-      background: var(--background);
-      height: auto;
-      min-height: 100vh;
-      color: var(--textDark);
-    }
-</style>
 <%= javascript_pack_tag 'singleplayer', 'data-turbolinks-track': 'reload' %>
 
 

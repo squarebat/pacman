@@ -933,7 +933,7 @@ var timerDelay = 80;
 var speed = 5;
 var score = 0;
 var lives = [];
-var MAX_LIFE = 3;
+var MAX_LIFE = 1;
 var life = MAX_LIFE;
 var weakBonus = 200;
 var MAX_BEANS = 136;
@@ -1412,16 +1412,6 @@ function printInstruction () {
 
 	for (var i = 0; i<lines.length; i++)
 	    ctx.fillText(lines[i], x, y + (i*lineheight) );
-
-	if (ghosts.length === 0){
-		ctx.fillStyle = "black";
-		ctx.fillRect(x, CANVAS_WIDTH-40, 70, 30);
-		ctx.fillStyle = "red";
-		ctx.font = "16px monospace";
-		ctx.textAlign = "left";
-		ctx.fillText("GOD MODE", x, CANVAS_WIDTH-20);
-	}
-
 }
 
 //draw lives on top-right corner
@@ -1436,33 +1426,18 @@ function showLives(){
 }
 
 //show welcome screen
-function welcomeScreen() {
-
-	gameOn = false;
+export function welcomeScreen() {
+	initFields();
+	initCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+	canvas.addEventListener('keydown', onKeyDown, false);
+	canvas.setAttribute('tabindex','0');
+	canvas.focus();
+	gameOn = true;
 	gamePaused = false;
-	// welcome text
-	ctx.fillStyle = "white";
-	ctx.font = "80px monospace";
-	ctx.textAlign = "center";
-	ctx.fillText("PACMAN", CANVAS_WIDTH/2, 170);
-	ctx.font = "20px monospace";
-	ctx.fillText("Press s to start", CANVAS_WIDTH/2, 220);
-	ctx.font = "14px monospace";
-	ctx.fillText("DEVELOPED BY: ZI WANG, BINGYING XIA", CANVAS_WIDTH/2 , CANVAS_HEIGHT/20*19);
-	
-	welcomePacman = new Pacman(CANVAS_WIDTH/5, CANVAS_HEIGHT/3*2, RIGHT);
-	welcomePacman.radius = 30;
-	welcomePacman.draw();
-
-	welcomeBlinky = new Ghost(CANVAS_WIDTH/5*3.3, CANVAS_HEIGHT/3*2, RED, LEFT);
-	welcomeBlinky.radius = 30;
-	welcomeBlinky.draw();
-
-	welcomeInky = new Ghost(CANVAS_WIDTH/5*4, CANVAS_HEIGHT/3*2, CYAN, RIGHT);
-	welcomeInky.radius = 30;
-	welcomeInky.draw();
-	intervalId = setInterval(updateWelcomeScreen, timerDelay*2);
-	console.log("Player: " + intervalId);
+	initMaze();
+	run();
+	//setTime();
+	return;
 }
 
 //welcome screen animation
@@ -1518,8 +1493,6 @@ function winMessage(){
 	ctx.fillStyle = "white";
 	ctx.font = "16px monospace";
 	ctx.fillText("Congratulations, you won!", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+6);
-	ctx.font = "12px monospace";
-	ctx.fillText("press R to play again", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
 	//saveGame(true);
 }
 
@@ -1583,7 +1556,7 @@ function updateCanvas() {
 			for(var i=0; i<ghosts.length; i++){
 				ghosts[i].isDead = false;
 				ghosts[i].isWeak = false;
-				ghosts[i.isBlinking = false];
+				ghosts[i].isBlinking = false;
 				weakBonus= 200;
 			}
 		}
@@ -1825,22 +1798,22 @@ function run(isGodMode) {
     
     mrPacman = new Pacman(pacmanStartLoc[1]*GRID_WIDTH + GRID_WIDTH/2, pacmanStartLoc[0]*GRID_HEIGHT + GRID_HEIGHT/2, RIGHT);
     if(isGodMode===undefined || !isGodMode){
-	    blinky = new Ghost(0,0, RED, DOWN);
-	    inky = new Ghost(0,0, CYAN, DOWN);
-	    pinky = new Ghost(0,0, PINK, DOWN);
-	    clyde = new Ghost(0,0, ORANGE, DOWN);
+	    //blinky = new Ghost(0,0, RED, DOWN);
+	    //inky = new Ghost(0,0, CYAN, DOWN);
+	    //pinky = new Ghost(0,0, PINK, DOWN);
+	    //clyde = new Ghost(0,0, ORANGE, DOWN);
 
-	    blinky.toGhostHouse();
-	    inky.toGhostHouse();
-	    pinky.toGhostHouse();
-	    clyde.toGhostHouse();
+	    //blinky.toGhostHouse();
+	    //inky.toGhostHouse();
+	    //pinky.toGhostHouse();
+	    //clyde.toGhostHouse();
 
-	    ghosts = [blinky, inky, pinky, clyde];
-
-	    inky.draw();
-		blinky.draw();
-		pinky.draw();
-		clyde.draw();
+	    //ghosts = [blinky, inky, pinky, clyde];
+		ghosts = [];
+	    //inky.draw();
+		//blinky.draw();
+		//pinky.draw();
+		//clyde.draw();
 	}
 	else{
 		ghosts = [];
@@ -1856,12 +1829,7 @@ function run(isGodMode) {
 
 
 /*-----------GAME START-----------*/
-initFields();
-initCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-canvas.addEventListener('keydown', onKeyDown, false);
-canvas.setAttribute('tabindex','0');
-canvas.focus();
-welcomeScreen();
+//welcomeScreen();
 
 
 

@@ -13,12 +13,17 @@
  *= require main
  *= require_self
  */
+@media only screen and (max-width: 60vw) {
+  body {
+    background-color: aquamarine;
+    padding-left: 30px;
+  }
+}
 .pretty th .current {
   padding-right: 12px;
   background-repeat: no-repeat;
   background-position: right center;
 }
-
 .pretty th .asc {
   background-image: url(/images/up_arrow.gif);
 }
