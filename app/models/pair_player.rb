@@ -1,4 +1,4 @@
-class PairPlayer
+class PairPlayer < ApplicationController
     def self.create(conn_id)
       if opponent = REDIS.spop("players")
         RaceGame.start(conn_id, opponent)

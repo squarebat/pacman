@@ -11,6 +11,10 @@ class GameroomChannel < ApplicationCable::Channel
     RaceGame.make_move(conn_id, data)
   end
 
+  def send_name(data)
+    RaceGame.send_name(conn_id, data)
+  end
+
   def unsubscribed
     PairPlayer.remove(conn_id)
     RaceGame.forfeit(conn_id)

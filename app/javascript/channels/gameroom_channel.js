@@ -32,12 +32,20 @@ var game = consumer.subscriptions.create( "GameroomChannel", {
 				document.getElementById("wait_msg").style.display = "none";
 				document.getElementById("canvas_div").style.display = "block";
 				document.getElementById("op_canvas_div").style.display = "block";
+				var player_name = document.getElementById("my_name").innerHTML;
+				this.perform("send_name", {"name" : player_name});
 				PlayerGame.welcomeScreen();
 				OpponentGame.welcomeScreen();
 				break;
+			
 			case "player_move":
 				OpponentGame.play_move_opponent_side(data.msg);
 				break;
+
+			case "send_name":
+				document.getElementById("op_name").innerHTML = data.msg.name;
+				break;
+
 			case "opponent_forfeits":
 				console.log("Opponent Disconnected from server. You Win!");
 				break;
