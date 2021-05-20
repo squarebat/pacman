@@ -874,22 +874,8 @@ var canvas = document.getElementById(canvasID);
 var CANVAS_WIDTH = 510;
 var CANVAS_HEIGHT = 510;
 
-/*var scoreID = "scoreDisplay";
-var highscoreID = "highScoreDisplay";
+var scoreID = "op_score";
 var display = document.getElementById(scoreID);
-var highScoreDisplay = document.getElementById(highscoreID);
-var high_score = parseInt(highScoreDisplay.innerHTML);
-
-var game_score = document.getElementById("game_score");
-var game_win = document.getElementById("game_win");
-var game_duration = document.getElementById("game_duration");
-var game_time_started = document.getElementById("game_time_started");
-var save_game = document.getElementById("save_game");
-
-if (save_game!=null)
-{
-	save_game.disabled = true;
-}*/
 var start_time;
 var ctx = canvas.getContext("2d");
 // game grid
@@ -1461,12 +1447,7 @@ function showScore(){
 	ctx.font = "24px monospace";
 	ctx.textAlign = "left";
 	ctx.fillText("score: " + parseInt(score), CANVAS_WIDTH-250, 37);
-	/*display.innerHTML = parseInt(score);
-	if (parseInt(score) > high_score)
-	{
-		highScoreDisplay.innerHTML = parseInt(score);
-		highScoreDisplay.color = 'green';
-	}*/
+	display.innerHTML = parseInt(score);
 }
 
 function saveGame(win = false)

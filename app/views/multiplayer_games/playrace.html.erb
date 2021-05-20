@@ -2,7 +2,7 @@
 <div class="columns center-align is-vcentered" id="canvases">
   <div class="pad column" id="canvas_div" style="display:none">
     <article class="scoreboard tile is-child notification is-success box">
-      <p class="title">You: 1000</p>
+      <p class="title">You: <span id="my_score">0</span></p>
       <p class="subtitle">cornball</p>
     </article>
     <canvas id="myCanvas" width="510" height="510">
@@ -10,7 +10,7 @@
   </div>
   <div class="column" id="op_canvas_div" style="display:none">
       <article class="scoreboard tile is-child notification is-danger box">
-        <p class="title">Your Enemy: 1000</p>
+        <p class="title">Your Enemy: <span id="op_score">0</span></p>
         <p class="subtitle">squarebat</p>
       </article>
       <canvas id="opponentCanvas" width="510" height="510">
