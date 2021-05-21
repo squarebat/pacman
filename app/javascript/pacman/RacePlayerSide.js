@@ -2,7 +2,7 @@
 // Group members: Zi Wang (ziw), Bingying Xia(bxia) //
 //////////////////////////////////////////////////////
 
-function Pacman(xCord, yCord, direction){
+export function Pacman(xCord, yCord, direction){
 	this.x = xCord;
 	this.y = yCord;
 	this.dir = direction;
@@ -1502,7 +1502,6 @@ function updateCanvas() {
 	restartTimer++;
 	if (gameOver()===true){
 		life--;
-		// mrPacman.dieAnimation();
 		showLives();
 		if (life>0){
 			sleep(500);

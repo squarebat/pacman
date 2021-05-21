@@ -22,7 +22,11 @@
             <tbody>
               <% @user_game_stats.each do |user_game_stat| %>
                 <tr>
-                  <td><%= user_game_stat.user.name %></td>
+                  <%if user_game_stat.user.name == current_user.name %>
+                    <td class="my-name-display" ><%= user_game_stat.user.name %></td>
+                  <% else %>
+                    <td><%= user_game_stat.user.name %></td>
+                  <% end %>
                   <td><%= user_game_stat.wins %></td>
                   <td><%= user_game_stat.total_games %></td>
                   <td><%= user_game_stat.total_score %></td>
@@ -37,9 +41,3 @@
         <a href="#" class="card-footer-item">View All</a>
     </footer>-->
 </div>
-<style>
-  .events-card .card-table {
-  max-height: 400px;
-  overflow-y: auto;
-  }
-</style>

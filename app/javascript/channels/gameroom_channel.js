@@ -28,26 +28,19 @@ var game = consumer.subscriptions.create( "GameroomChannel", {
 		{
 			case "game_start":
 				game_started = true;
-				clearTimeout(conn_timeout);
-				document.getElementById("wait_msg").style.display = "none";
-				document.getElementById("canvas_div").style.display = "block";
-				document.getElementById("op_canvas_div").style.display = "block";
-				var player_name = document.getElementById("my_name").innerHTML;
-				this.perform("send_name", {"name" : player_name});
-				PlayerGame.welcomeScreen();
-				OpponentGame.welcomeScreen();
+				initGame();
 				break;
 			
-			case "player_move":
-				OpponentGame.play_move_opponent_side(data.msg);
-				break;
-
 			case "send_name":
 				document.getElementById("op_name").innerHTML = data.msg.name;
 				break;
 
+			case "player_move":
+				OpponentGame.play_move_opponent_side(data.msg);
+				break;
+
 			case "opponent_forfeits":
-				console.log("Opponent Disconnected from server. You Win!");
+				opponentDisconnected();
 				break;
 		}
 	},
@@ -63,4 +56,20 @@ document.addEventListener("keydown", (event) => {
 	console.log("Key pressed " + event.code);
 	game.perform("send_move", {"move" : event.code});
 });
-  
+
+function initGame()
+{
+	clearTimeout(conn_timeout);
+	document.getElementById("wait_msg").style.display = "none";
+	document.getElementById("canvas_div").style.display = "block";
+	document.getElementById("op_canvas_div").style.display = "block";
+	var player_name = document.getElementById("my_name").innerHTML;
+	game.perform("send_name", {"name" : player_name});
+	PlayerGame.welcomeScreen();
+	OpponentGame.welcomeScreen();
+}
+
+function opponentDisconnected()
+{
+	console.log("Opponent Disconnected from server. You Win!");
+}

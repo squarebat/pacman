@@ -1,3 +1,11 @@
 // Place all the styles related to the user_game_stats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.events-card .card-table {
+max-height: 400px;
+overflow-y: auto;
+}
+.my-name-display {
+color: #F9A602;
+font-weight: bold;
+}
